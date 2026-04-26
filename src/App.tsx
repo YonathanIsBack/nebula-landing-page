@@ -1,14 +1,41 @@
-import { Menu, Image, Row, Col, Typography } from "antd";
 import type { MenuProps } from "antd";
-import { useState } from "react";
+import { Col, Divider, Flex, Menu, Row, Tag, Typography } from "antd";
+import { Content, Footer } from "antd/es/layout/layout";
+import { useEffect, useState } from "react";
 import "./App.css";
-import { Content, Footer, Header } from "antd/es/layout/layout";
 
 const { Text, Title } = Typography;
 type MenuItem = Required<MenuProps>["items"][number];
 
+const greetings = {
+  morning: "Good Morning!",
+  noon: "Good Noon!",
+  afternoon: "Good Afternoon!",
+  night: "Good Night!",
+};
+
 function App() {
-  const [current, setCurrent] = useState("mail");
+  const [greeting, setGreeting] = useState(greetings.morning);
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if(hour < 11  && hour >= 5) {
+      setGreeting(greetings.morning);
+    }
+    if(hour < 13  && hour >= 11) {
+      setGreeting(greetings.noon);
+    }
+    if(hour < 22  && hour >= 13) {
+      setGreeting(greetings.afternoon);
+    }
+    if(hour < 5  && hour >= 22) {
+      setGreeting(greetings.night);
+    }
+
+    console.log(hour)
+    console.log(greeting)
+  }, []);
+
   const items: MenuItem[] = [
     {
       label: <a href="#home">Home</a>,
@@ -42,11 +69,6 @@ function App() {
     },
   ];
 
-  const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
-  };
-
   return (
     <>
       <Row
@@ -57,7 +79,7 @@ function App() {
           backgroundColor: "white",
           width: "1126px",
           position: "fixed",
-          zIndex: 1
+          zIndex: 1,
         }}
       >
         <Col
@@ -74,8 +96,6 @@ function App() {
         </Col>
         <Col span={18}>
           <Menu
-            onClick={onClick}
-            selectedKeys={[current]}
             mode="horizontal"
             items={items}
             style={{
@@ -107,7 +127,7 @@ function App() {
                   paddingTop: "30%",
                 }}
               >
-                <Title style={{ color: "white" }}>Good Morning!</Title>
+                <Title style={{ color: "white" }}>{greeting}</Title>
                 <Text style={{ color: "white" }}>
                   My name is Yonathan and I am an IT Professional currently
                   working as a Fullstack Engineer in Indonesia. Experienced and
@@ -121,9 +141,69 @@ function App() {
       </Content>
       <Content id="about-me">
         <Row
-        style={{
-          height: "100vh"
-        }}>
+          style={{
+            height: "100vh",
+          }}
+        >
+          <Col
+            span={14}
+            style={{
+              borderRightColor: "rgba(5, 5, 5, 0.06)",
+              borderRightStyle: "solid",
+              borderRightWidth: "1px",
+            }}
+          >
+            <Title>About Me</Title>
+            <Divider />
+            <Content
+              style={{
+                textAlign: "left",
+                paddingLeft: "2rem",
+                paddingRight: "2rem",
+              }}
+            >
+              <Title level={5}>My name is</Title>
+              <Text>Yonathan Pandapotan</Text>
+              <Divider />
+              <Title level={5}>I Have Experience on</Title>
+              <Text>Language</Text>
+              <Flex gap="small" align="center" wrap>
+                <Tag>Java</Tag>
+                <Tag>PHP</Tag>
+                <Tag>Javascript</Tag>
+              </Flex>
+              <br />
+              <Text>Framework</Text>
+              <Flex gap="small" align="center" wrap>
+                <Tag>Spring Boot</Tag>
+                <Tag>Laravel</Tag>
+                <Tag>React</Tag>
+                <Tag>React Native</Tag>
+                <Tag>Next Js</Tag>
+                <Tag>Sveltekit</Tag>
+                <Tag>Express Js</Tag>
+              </Flex>
+              <br />
+              <Text>Database</Text>
+              <Flex gap="small" align="center" wrap>
+                <Tag>Myslq</Tag>
+                <Tag>MariaDb</Tag>
+                <Tag>PostgreSQL</Tag>
+                <Tag>MongoDB</Tag>
+              </Flex>
+              <br />
+              <Text>CI/CD And Devops</Text>
+              <Flex gap="small" align="center" wrap>
+                <Tag>Git</Tag>
+                <Tag>Jenkin</Tag>
+                <Tag>Docker</Tag>
+                <Tag>Red Hat OCP</Tag>
+              </Flex>
+            </Content>
+          </Col>
+          <Col span={10}>
+            <Text>Your Profile image goes here</Text>
+          </Col>
         </Row>
       </Content>
       <Footer></Footer>
