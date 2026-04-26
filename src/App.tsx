@@ -84,6 +84,7 @@ function App() {
               height: "90vh",
               width: "100%",
               backgroundColor: "rgba(0,0,0,0.25)",
+              backgroundImage: `url("/landing-page-background.webp")`,
             }}
           >
             <Row style={{ height: "100%" }}>
@@ -93,11 +94,11 @@ function App() {
                   textAlign: "left",
                   paddingLeft: "42px",
                   paddingRight: "42px",
-                  paddingTop: "20%",
+                  paddingTop: "30%",
                 }}
               >
-                <Title>Good Morning!</Title>
-                <Text>
+                <Title style={{ color: "white" }}>Good Morning!</Title>
+                <Text style={{ color: "white" }}>
                   My name is Yonathan and I am an IT Professional currently
                   working as a Fullstack Engineer in Indonesia. Experienced and
                   passionate on Website, API, Database, Mobile and Application
