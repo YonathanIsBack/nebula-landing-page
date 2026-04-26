@@ -11,7 +11,12 @@ function App() {
   const [current, setCurrent] = useState("mail");
   const items: MenuItem[] = [
     {
-      label: "About Me",
+      label: <a href="#home">Home</a>,
+      key: "home",
+      icon: "",
+    },
+    {
+      label: <a href="#about-me">About Me</a>,
       key: "about-me",
       icon: "",
     },
@@ -49,10 +54,14 @@ function App() {
           borderBottomWidth: "1px",
           borderColor: "rgba(5, 5, 5, 0.06)",
           borderBottomStyle: "solid",
+          backgroundColor: "white",
+          width: "1126px",
+          position: "fixed",
+          zIndex: 1
         }}
       >
         <Col
-          span={8}
+          span={6}
           style={{
             alignItems: "center",
             display: "flex",
@@ -63,7 +72,7 @@ function App() {
             User Why Nebula
           </Title>
         </Col>
-        <Col span={16}>
+        <Col span={18}>
           <Menu
             onClick={onClick}
             selectedKeys={[current]}
@@ -77,14 +86,15 @@ function App() {
           />
         </Col>
       </Row>
-      <Content>
+      <Content id="home">
         <Row>
           <Col
             style={{
+              marginTop: "45px",
               height: "90vh",
               width: "100%",
-              backgroundColor: "rgba(0,0,0,0.25)",
-              backgroundImage: `url("/landing-page-background.webp")`,
+              background: `linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url("/landing-page-background.webp")`,
+              backgroundSize: "cover",
             }}
           >
             <Row style={{ height: "100%" }}>
@@ -107,6 +117,13 @@ function App() {
               </Col>
             </Row>
           </Col>
+        </Row>
+      </Content>
+      <Content id="about-me">
+        <Row
+        style={{
+          height: "100vh"
+        }}>
         </Row>
       </Content>
       <Footer></Footer>
