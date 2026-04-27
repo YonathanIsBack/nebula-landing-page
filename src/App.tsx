@@ -1,5 +1,5 @@
 import type { MenuProps } from "antd";
-import { Col, Divider, Flex, Menu, Row, Tag, Typography } from "antd";
+import { Col, Divider, Flex, Menu, Row, Tag, Typography, Image } from "antd";
 import { Content, Footer } from "antd/es/layout/layout";
 import { useEffect, useState } from "react";
 import "./App.css";
@@ -19,31 +19,35 @@ function App() {
 
   useEffect(() => {
     const hour = new Date().getHours();
-    if(hour < 11  && hour >= 5) {
+    if (hour < 11 && hour >= 5) {
       setGreeting(greetings.morning);
     }
-    if(hour < 13  && hour >= 11) {
+    if (hour < 13 && hour >= 11) {
       setGreeting(greetings.noon);
     }
-    if(hour < 22  && hour >= 13) {
+    if (hour < 22 && hour >= 13) {
       setGreeting(greetings.afternoon);
     }
-    if(hour < 5  && hour >= 22) {
+    if ((hour >= 0 && hour < 5) || (hour >= 22 && hour <= 24)) {
       setGreeting(greetings.night);
     }
-
-    console.log(hour)
-    console.log(greeting)
   }, []);
+
+  const onClickMenu = ({ key }) => {
+    const element = document.getElementById(key);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const items: MenuItem[] = [
     {
-      label: <a href="#home">Home</a>,
+      label: "Home",
       key: "home",
       icon: "",
     },
     {
-      label: <a href="#about-me">About Me</a>,
+      label: "About Me",
       key: "about-me",
       icon: "",
     },
@@ -98,6 +102,7 @@ function App() {
           <Menu
             mode="horizontal"
             items={items}
+            onClick={onClickMenu}
             style={{
               justifyContent: "flex-end",
               borderBottomWidth: "0px",
@@ -139,12 +144,14 @@ function App() {
           </Col>
         </Row>
       </Content>
-      <Content id="about-me">
-        <Row
-          style={{
-            height: "100vh",
-          }}
-        >
+      <Content
+        id="about-me"
+        style={{
+          scrollMarginTop: "45px",
+          height: "95vh",
+        }}
+      >
+        <Row>
           <Col
             span={14}
             style={{
@@ -186,7 +193,7 @@ function App() {
               <br />
               <Text>Database</Text>
               <Flex gap="small" align="center" wrap>
-                <Tag>Myslq</Tag>
+                <Tag>Mysql</Tag>
                 <Tag>MariaDb</Tag>
                 <Tag>PostgreSQL</Tag>
                 <Tag>MongoDB</Tag>
@@ -202,10 +209,23 @@ function App() {
             </Content>
           </Col>
           <Col span={10}>
-            <Text>Your Profile image goes here</Text>
+            <Image
+              width="100%"
+              height="95vh"
+              style={{ objectFit: "cover" }}
+              preview={false}
+              alt="basic"
+              src="banner-image.webp"
+            />
           </Col>
         </Row>
       </Content>
+      <Content
+        id="background"
+        style={{
+          height: "95vh",
+        }}
+      ></Content>
       <Footer></Footer>
     </>
   );
