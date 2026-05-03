@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Layout,
   Menu,
@@ -9,9 +9,6 @@ import {
   Timeline,
   Image,
   Typography,
-  Divider,
-  Space,
-  theme,
 } from "antd";
 import {
   HomeOutlined,
@@ -29,9 +26,9 @@ const App = () => {
   const [current, setCurrent] = useState("home");
   const [darkTheme, setDarkTheme] = useState(false);
 
-  const onMenuClick = (e) => {
-    setCurrent(e.key);
-    const element = document.getElementById(e.key);
+  const onMenuClick = (event: { key: string }) => {
+    setCurrent(event.key);
+    const element = document.getElementById(event.key);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -245,7 +242,7 @@ const App = () => {
                       </Title>
                     ),
                     content: (
-                      <Card className={getCardThemeClass(darkTheme)} >
+                      <Card className={getCardThemeClass(darkTheme)}>
                         <Row gutter={16} align="middle">
                           <Col xs={24} md={24}>
                             <Image
@@ -262,7 +259,9 @@ const App = () => {
                               Graduated from University
                             </Title>
                             <Paragraph className={getTextThemeClass(darkTheme)}>
-                              I Completed my Bachelor's degree in Information Technology in 2020. However i took a break before continuing my journey.
+                              I Completed my Bachelor's degree in Information
+                              Technology in 2020. However i took a break before
+                              continuing my journey.
                             </Paragraph>
                           </Col>
                         </Row>
@@ -297,7 +296,11 @@ const App = () => {
                               First Job as Application Developer
                             </Title>
                             <Paragraph className={getTextThemeClass(darkTheme)}>
-                              Landed my first job at Haluan Rekadaya Konsultindo (HRK) as Application Engineer or IT Developer. My focus in here is to develop ERP Application (Robustapp) as well as integerating the application and improve the existing business.
+                              Landed my first job at Haluan Rekadaya Konsultindo
+                              (HRK) as Application Engineer or IT Developer. My
+                              focus in here is to develop ERP Application
+                              (Robustapp) as well as integerating the
+                              application and improve the existing business.
                             </Paragraph>
                           </Col>
                         </Row>
@@ -332,7 +335,11 @@ const App = () => {
                               Closing Existing Chapter
                             </Title>
                             <Paragraph className={getTextThemeClass(darkTheme)}>
-                              After a long journey, with hardship, friendship and lots of experience, i decided it is time to close this chapter of my journey and continue to another. I'm grateful for all the learning, improvement and dedication from all my Coworker.
+                              After a long journey, with hardship, friendship
+                              and lots of experience, i decided it is time to
+                              close this chapter of my journey and continue to
+                              another. I'm grateful for all the learning,
+                              improvement and dedication from all my Coworker.
                             </Paragraph>
                           </Col>
                         </Row>
@@ -367,7 +374,12 @@ const App = () => {
                               Leveling Up
                             </Title>
                             <Paragraph className={getTextThemeClass(darkTheme)}>
-                              I continue my journey in Pt Bank BTPN, Tbk, continuing as Creative Hacknology Intensive Program. It was such an interesting journey with hurdle, hardship, new thigs to learn and Aspiring Mentor, i managed to survive and secure my journey.
+                              I continue my journey in Pt Bank BTPN, Tbk,
+                              continuing as Creative Hacknology Intensive
+                              Program. It was such an interesting journey with
+                              hurdle, hardship, new thigs to learn and Aspiring
+                              Mentor, i managed to survive and secure my
+                              journey.
                             </Paragraph>
                           </Col>
                         </Row>
@@ -402,7 +414,11 @@ const App = () => {
                               Current Role
                             </Title>
                             <Paragraph className={getTextThemeClass(darkTheme)}>
-                              I'm currently continuing my journey as a Fullstack Engineer focusing on building scalable applications while also maintaining microservices architectures, fullfulling user needs, tackling problems and prioritizing critical component.
+                              I'm currently continuing my journey as a Fullstack
+                              Engineer focusing on building scalable
+                              applications while also maintaining microservices
+                              architectures, fullfulling user needs, tackling
+                              problems and prioritizing critical component.
                             </Paragraph>
                           </Col>
                         </Row>
@@ -437,7 +453,10 @@ const App = () => {
                               Where To Next?
                             </Title>
                             <Paragraph className={getTextThemeClass(darkTheme)}>
-                              I'm aiming to improve myself not only as engineer but also in management. I'm trying to level up my skill by moving myself toward Project Managements or even becoming Scrum Master.
+                              I'm aiming to improve myself not only as engineer
+                              but also in management. I'm trying to level up my
+                              skill by moving myself toward Project Managements
+                              or even becoming Scrum Master.
                             </Paragraph>
                           </Col>
                         </Row>
@@ -584,7 +603,9 @@ const App = () => {
                   I'm An Arknight Enjoyer
                 </Title>
                 <Paragraph className={getTextThemeClass(darkTheme)}>
-                  By the way, i'm an arknights player and enjoyer. I've been playing this game since 2021 and plannig to keep on playing. So if you're interested you could add me in the game.
+                  By the way, i'm an arknights player and enjoyer. I've been
+                  playing this game since 2021 and plannig to keep on playing.
+                  So if you're interested you could add me in the game.
                 </Paragraph>
               </Card>
             </Col>
