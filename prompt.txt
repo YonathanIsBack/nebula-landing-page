@@ -1,0 +1,48 @@
+Create landing web page for Personal Portfolio. The Portfolio will contain information regarding user expertise in IT.
+
+The web page will contain:
+- Header:
+Which will served as menu navigation where if user click will scroll the webpage to a designated section. This section will contain menu list of : Home, About Me, Background, Work Done, Contact Person, About Something Else
+- Content Section:
+This section will be divided to 6 Categories.
+	1. Home: This Section will contain cover image with greetings and welcome message "Good morning. My name is Yonathan and I am an IT Professional currently working as a Fullstack Engineer in Indonesia. Experienced and passionate on Website, API, Database, Mobile and Application Development." The text will overlay on top of the cover image.
+	2. About Me: This section will contain information about myself. The section will have "My Name: Yonathan P.", then put "I have experience in:
+Language: 
+- Java
+- PHP
+- Javascript
+
+Framework:
+- Spring Boot
+- Laravel
+- React
+- React Native
+- Next Js
+- Sveltekit
+- Express Js
+
+Database:
+- MYsql
+- MariaDB
+- PostgreSQL
+- MongoDB
+
+CI/CD And Devops:
+- Git
+- Jenkin
+- Docker
+- Red Hat OCP
+"
+	3. Background: This Section will contain timeline from top to bottom with point indicating a checkpoint in a timeline. The timeline will have left and right section which every section will take turn on both side. Make the content appear on the timeline also fit with images
+	4. Work Done: This section will contain work's done as a gallery or list of image with name
+	5. Contact Person: This section will contain contact person that include, the name, phone number, email
+	6. About Something Else: This section will contain image on the left and overlay text on the right
+
+Create this website using:
+- React
+- Ant Design
+
+Notes:
+- Make this webpage into single page only
+- Make this webpage have light and dark theme
+- Make this webpage responsive and mobile friendly
