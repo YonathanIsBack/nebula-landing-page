@@ -25,6 +25,7 @@ const { Title, Text, Paragraph } = Typography;
 const App = () => {
   const [current, setCurrent] = useState("home");
   const [darkTheme, setDarkTheme] = useState(false);
+  const basePath = import.meta.env.BASE_URL;
 
   const onMenuClick = (event: { key: string }) => {
     setCurrent(event.key);
@@ -246,7 +247,7 @@ const App = () => {
                         <Row gutter={16} align="middle">
                           <Col xs={24} md={24}>
                             <Image
-                              src="/esa-unggul-university.webp"
+                              src={`${basePath}/esa-unggul-university.webp`}
                               alt="graduated-from-university"
                               style={{ width: "100%", borderRadius: "8px" }}
                             />
@@ -361,7 +362,7 @@ const App = () => {
                         <Row gutter={16} align="middle">
                           <Col xs={24} md={24}>
                             <Image
-                              src="/leveling-up.webp"
+                              src={`${basePath}//leveling-up.webp`}
                               alt="2024"
                               style={{ width: "100%", borderRadius: "8px" }}
                             />
@@ -401,7 +402,7 @@ const App = () => {
                         <Row gutter={16} align="middle">
                           <Col xs={24} md={24}>
                             <Image
-                              src="/current-role.webp"
+                              src={`${basePath}//current-role.webp`}
                               alt="2024"
                               style={{ width: "100%", borderRadius: "8px" }}
                             />
@@ -592,7 +593,7 @@ const App = () => {
           <Row justify="center" style={{ marginTop: "24px" }} gutter={24}>
             <Col xs={24} md={12}>
               <Image
-                src="/hobbies-arknights.webp"
+                src={`${basePath}//hobbies-arknights.webp`}
                 alt="Something Else"
                 style={{ width: "100%", borderRadius: "8px" }}
               />
